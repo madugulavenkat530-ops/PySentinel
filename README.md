@@ -9,7 +9,7 @@ It generates a terminal-based system health report and automatically saves monit
 - Displays total, used, and free disk space.
 - Calculates the total size of a folder.
 - Identifies the five largest files.
-- Converts bytes into human-readable sizes (KB, MB, GB).
+- Converts bytes into human-readable sizes (B, KB, MB, GB, TB).
 - Generates a system health report.
 - Saves monitoring history in `health_log.txt`.
 - Handles invalid folder paths gracefully.
@@ -56,5 +56,5 @@ Monitoring history is saved in `health_log.txt`.
 
 Venkat Ram Charan
 
-GitHub: [@madugulaVenkat530]
+GitHub: [@madugulavenkat530-ops](https://github.com/madugulavenkat530-ops)
 
