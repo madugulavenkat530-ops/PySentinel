@@ -52,6 +52,12 @@ def generate_report(path):
 
     if not os.path.isdir(path):
         print("ERROR : The specified folder does not exist.")
+         with open("health_log.txt", "a") as file:
+        file.write(
+            f"{datetime.now()} | Free Disk: N/A | "
+            f"Folder Size: N/A (Invalid path)\n"
+        )
+
         return
     print("="*45)
     print("            PYSENTINEL")
@@ -88,7 +94,6 @@ def save_log(free_percentage, folder_size_bytes):
             f"{current_time} | Free Disk: {free_percentage:.2f}% | "
             f"Folder Size: {human_size(folder_size_bytes)}\n"
         )
-    file.close()
 
 
 folder = input("Enter folder path (Press Enter for current folder): ")
