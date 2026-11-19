@@ -1,0 +1,22 @@
+[
+    {
+        "timestamp": "2026-11-19 12:27:52.177698",
+        "results": [
+            {
+                "name": "Disk Space",
+                "status": "OK",
+                "detail": "Free disk space : 80.98%"
+            },
+            {
+                "name": "Folder Size",
+                "status": "OK",
+                "detail": "Folder size:0.02 MB"
+            },
+            {
+                "name": "Large Files",
+                "status": "OK",
+                "detail": "No large files found"
+            }
+        ]
+    }
+]

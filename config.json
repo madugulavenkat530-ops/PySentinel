@@ -1,0 +1,11 @@
+{
+    "min_free_percent": 20,
+    "critical_free_percent":10,
+    "max_folder_mb": 500,
+    "critical_folder_mb":1000,
+    "max_file_mb": 100,
+    "critical_file_mb":500,
+    "folders_to_watch": [
+        "."
+    ]
+}
