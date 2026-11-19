@@ -52,11 +52,11 @@ def generate_report(path):
 
     if not os.path.isdir(path):
         print("ERROR : The specified folder does not exist.")
-        with open("health_log.txt", "a") as file:
-            file.write(
-                f"{datetime.now()} | Free Disk: N/A | "
-                f"Folder Size: N/A (Invalid path)\n"
-            )
+         with open("health_log.txt", "a") as file:
+        file.write(
+            f"{datetime.now()} | Free Disk: N/A | "
+            f"Folder Size: N/A (Invalid path)\n"
+        )
 
         return
     print("="*45)
