@@ -7,5 +7,14 @@
     "critical_file_mb":500,
     "folders_to_watch": [
         "."
-    ]
+    ],
+    "websites":[
+        "https://google.com",
+        "https://github.com",
+        "https://example.com",
+        "https://wikipedia.org",
+        "https://youtube.com",
+        "https://this-website-does-not-exist-12345.com"
+    ],
+    "slow_response_ms":2000
 }

@@ -1,5 +1,8 @@
 import shutil
 import os
+import requests
+import time
+from datetime import datetime
 
 
 class Check:
@@ -107,3 +110,52 @@ class LargeFileCheck(Check):
             "status": status,
             "detail": detail
         }
+
+
+class WebsiteCheck(Check):
+    def __init__(self, websites, slow_response_ms):
+        self.websites = websites
+        self.slow_response_ms = slow_response_ms
+
+    def run(self):
+        results = []
+        for url in self.websites:
+            status_code = ""
+            response_time = ""
+            try:
+                start_time = time.perf_counter()
+                response = requests.get(url, timeout=5)
+                status_code = response.status_code
+                end_time = time.perf_counter()
+                response_time = (end_time-start_time)*1000
+                if response.status_code >= 200 and response.status_code < 300:
+                    if response_time > self.slow_response_ms:
+                        status = "WARN"
+                        detail = f"Slow response:{response_time:.2f} ms"
+                    else:
+                        status = "OK"
+                        detail = f"Website responded in {response_time:.2f} ms"
+                else:
+                    status = "FAIL"
+                    detail = f"HTTP Error: {response.status_code}"
+            except requests.exceptions.Timeout:
+                status = "FAIL"
+                detail = "Request timed out"
+            except requests.exceptions.ConnectionError:
+                status = "FAIL"
+                detail = "Connection failed"
+            except requests.exceptions.RequestException as error:
+                status = "FAIL"
+                detail = str(error)
+
+            results.append({
+                "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "name": url,
+                "status_code": status_code,
+                "response_ms": response_time,
+                "status": status,
+                "detail": detail
+
+
+            })
+        return results

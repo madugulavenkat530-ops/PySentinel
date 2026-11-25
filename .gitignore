@@ -1,2 +1,8 @@
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Generated monitoring data
+history.json
+uptime.csv
+health_log.txt
